@@ -23,7 +23,8 @@ namespace GeekShopping.ProductAPI.Migrations
                     Price = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     Description = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Category_Name = table.Column<decimal>(type: "decimal(65,30)", maxLength: 50, nullable: false),
+                    Category_Name = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Image_Url = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekShopping.ProductAPI.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20211128023330_AddProductDataTableDB")]
+    [Migration("20211130195106_AddProductDataTableDB")]
     partial class AddProductDataTableDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,10 @@ namespace GeekShopping.ProductAPI.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("Id");
 
-                    b.Property<decimal>("CategoryName")
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("decimal(65,30)")
+                        .HasColumnType("varchar(50)")
                         .HasColumnName("Category_Name");
 
                     b.Property<string>("Description")
