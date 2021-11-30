@@ -24,7 +24,7 @@ namespace GeekShopping.ProductAPI.Model
         [Column("Category_Name")]
         [Required]
         [StringLength(50)]
-        public decimal CategoryName { get; set;}
+        public string CategoryName { get; set;}
 
         [Column("Image_Url")]
         [StringLength(300)]
