@@ -28,7 +28,7 @@ namespace GeekShopping.ProductAPI.Controller
         public async Task<ActionResult<ProductVO>> FindById(long id)
         {
             var product = await _repository.FindById(id);
-            if (product is null) return NotFound();
+            if (product is null) return StatusCode(204, "Operação com sucesso mas sem produtos encontrados");
 
             return Ok(product);
         }
@@ -36,7 +36,7 @@ namespace GeekShopping.ProductAPI.Controller
         [HttpPost]
         public async Task<ActionResult<ProductVO>> CreateProduct(ProductVO vo)
         {
-            if (vo is null) return BadRequest();
+            if (vo is null) return StatusCode(404, "Não encontrado");
 
             var product = await _repository.Create(vo);
             return Ok(product);
@@ -45,7 +45,7 @@ namespace GeekShopping.ProductAPI.Controller
         [HttpPut]
         public async Task<ActionResult<ProductVO>> UpdateProduct(ProductVO vo)
         {
-            if (vo is null) return BadRequest();
+            if (vo is null) return StatusCode(404, "Não encontrado");
             var product = await _repository.Update(vo);
             return Ok();
         }
@@ -54,7 +54,7 @@ namespace GeekShopping.ProductAPI.Controller
         public async Task<ActionResult> DeleteProduct(long id)
         {
             var status = await _repository.Delete(id);
-            if (status is false) return NotFound();
+            if (status is false) return StatusCode(404, "Não encontrado");
 
             return Ok(status);
         }
