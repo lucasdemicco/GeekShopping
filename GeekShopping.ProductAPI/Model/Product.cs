@@ -12,9 +12,10 @@ namespace GeekShopping.ProductAPI.Model
         [StringLength(150, ErrorMessage = "Nome pode ter no máximo 150 caracteres")]
         public string Name { get; set; }
 
-        [Column("Price")]
+        [DataType(DataType.Currency)]
+        [Column("Price", TypeName = "decimal(8,2)")] 
         [Required]
-        [Range(1, 10000)]
+        [Range(1, 10000, ErrorMessage = "O preço deve estar entre {1} e {2}")]
         public decimal Price { get; set; }   
         
         [Column("Description")]

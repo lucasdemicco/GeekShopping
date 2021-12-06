@@ -1,9 +1,10 @@
 ﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace GeekShopping.ProductAPI.Model.Context
 {
-    public class MySQLContext : DbContext
+    public class MySQLContext : IdentityDbContext
     {
         public MySQLContext(){}
 

@@ -1,4 +1,5 @@
 ﻿using GeekShopping.ProductAPI.Data.ValueObjects;
+using GeekShopping.ProductAPI.Pagination;
 
 namespace GeekShopping.ProductAPI.Repository
 {
