@@ -2,7 +2,6 @@
 using GeekShopping.ProductAPI.Data.ValueObjects;
 using GeekShopping.ProductAPI.Model;
 using GeekShopping.ProductAPI.Model.Context;
-using GeekShopping.ProductAPI.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace GeekShopping.ProductAPI.Repository

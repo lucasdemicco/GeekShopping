@@ -14,7 +14,7 @@ namespace GeekShopping.ProductAPI.Model.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+           base.OnModelCreating(modelBuilder);
         }
     }
 }
