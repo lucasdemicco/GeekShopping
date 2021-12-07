@@ -83,7 +83,7 @@ namespace GeekShopping.ProductAPI.Controller
             };
 
             var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration["Jwy:Key"]));
+                Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
 
             var credenciais = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var credenciaisExpiracao = _configuration["TokenConfiguration:ExpireHours"];

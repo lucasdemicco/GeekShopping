@@ -35,7 +35,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 builder.Services.AddAuthentication(
     JwtBearerDefaults.AuthenticationScheme).
     AddJwtBearer(options =>
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
@@ -44,7 +44,7 @@ builder.Services.AddAuthentication(
             ValidIssuer = builder.Configuration["TokenConfiguration:Issuer"],
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwy:Key"]))
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         });
 
 
