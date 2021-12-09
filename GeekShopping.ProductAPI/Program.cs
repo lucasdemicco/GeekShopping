@@ -4,6 +4,7 @@ using GeekShopping.ProductAPI.Model.Context;
 using GeekShopping.ProductAPI.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -59,6 +60,13 @@ builder.Services.AddCors(
         builder => builder.WithOrigins("@http://localhost:5000")
                           .WithMethods("GET", "POST", "PUT", "DELETE")));
 
+builder.Services.AddApiVersioning(opt =>
+{
+    opt.AssumeDefaultVersionWhenUnspecified = true;
+    opt.DefaultApiVersion = new ApiVersion(1, 0);
+    opt.ReportApiVersions = true;
+});
+ 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
