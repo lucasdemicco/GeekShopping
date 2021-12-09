@@ -54,6 +54,11 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+builder.Services.AddCors(
+    opt => opt.AddPolicy("PermitirApiRequest", 
+        builder => builder.WithOrigins("@http://localhost:5000")
+                          .WithMethods("GET", "POST", "PUT", "DELETE")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -66,6 +71,10 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseCors(builder => builder
+    .WithOrigins(@"http://localhost:5000")
+    .WithMethods("GET", "POST", "PUT", "DELETE"));
 
 app.MapControllers();
 
